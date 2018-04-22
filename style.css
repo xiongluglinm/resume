@@ -3,8 +3,11 @@
     margin: 0;
     padding: 0;
 }
+a {
+    text-decoration: none;
+}
 body {
-    background: #efefef;
+    background: #efefef; 
 }
 
 
@@ -84,6 +87,8 @@ body {
     background-color: #ffffff;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+    margin-top: -345px;
 }
 .user-card .picture-and-text {
     padding: 50px;
@@ -159,4 +164,158 @@ footer.media a svg{
     width: 30px;
     height: 30px;
     vertical-align: top; /* 让svg在a内垂直居中 */
+}
+main .download-wrapper{
+    text-align: center;
+}
+main .download-wrapper .download{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border: 1px solid #cbcdcf;
+    /* vertical-align: top; */
+    margin-top: 35px;
+    margin-bottom: 32px;
+    color: #3d4451;
+    background-color: #efefef;
+    border-radius: 3px;
+    transition: box-shadow 0.3s;
+}
+main .download-wrapper .download:hover{
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.3);
+}
+main .self-introduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: KaiTi;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
+}
+
+section.skill,
+section.portfolio{
+    max-width: 940px;    
+    margin-left: auto;
+    margin-right: auto;  
+    /* text-align: center;   */
+    /* padding: 40px 50px 50px; */
+    
+}
+section.skill h2,
+section.portfolio h2{
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: center;  
+    margin-top: 60px;
+    margin-bottom: 25px;
+}
+section.skill ol{
+    list-style: none;
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.3);
+    padding: 37px 50px 10px;
+    background-color: #ffffff;
+}
+section.skill ol li{
+    /* border: 1px solid red; */
+    float: left;
+    width: 50%;;
+    box-sizing: border-box;
+    padding-right: 16px;
+}
+section.skill ol li:nth-child(even){
+    padding-left:16px;
+    padding-right: 0;
+}
+section.skill ol li span{
+    font-size: 14px;
+    line-height: 1.1;
+    /* margin-bottom: 5px; */
+}
+section.skill ol li .progress-bar{
+    /* border: 1px solid red; */
+    background-color: #fae1e1;
+    height: 5px;
+    margin-top: 5px;
+    margin-bottom: 37px;  
+    border-radius: 2px;      
+}
+section.skill ol li .progress-bar .progress{
+    background-color: #e8676b;
+    height: 100%;
+    width: 50%;
+    border-radius: 2px;         
+}
+
+section.portfolio{
+    text-align: center;
+}
+section.portfolio nav{
+    /* border: 1px solid red; */
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 30px;
+    
+}
+section.portfolio nav ol{
+    /* border: 1px solid green; */
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+}
+section.portfolio nav ol li{
+    /* border: 1px solid red; */
+    float: left;
+    margin-left: 50px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Open Sans";
+    cursor: pointer;
+}
+section.portfolio nav ol li:first-child{
+    margin-left: 0;
+}
+section.portfolio nav .bar{
+    /* border: 1px solid red; */
+    height: 5px;
+    margin-top: 16px;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+section.portfolio nav .bar .bar-inner{
+    background-color: #e8676b;
+    width: 35px;
+    height: 100%;
+    margin-left: 0px;
+    border-radius: 2px;
+    transition: all 0.5s;
+}
+section.portfolio nav .bar .bar-inner.state-1{
+    width: 35px;
+    margin-left: 0px;
+}
+section.portfolio nav .bar .bar-inner.state-2{
+    width: 40px;
+    margin-left: 73px;
+}
+section.portfolio nav .bar .bar-inner.state-3{
+    width: 85px;
+    margin-left: 150px;
+}
+section.portfolio .jobs{
+    /* border: 1px solid red; */
+    position: relative;
+    margin-bottom: 100px;
+}
+section.portfolio .jobs .big,
+section.portfolio .jobs .small{
+    position: absolute;
 }
