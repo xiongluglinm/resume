@@ -236,6 +236,22 @@
             }
         }
 
+        // let aTags = document.querySelectorAll('#topNavBar nav>ul>li>a')
+        // console.log(aTags)
+        // for(let i = 0; i < aTags.length; i++){
+        //     aTags[i].onclick = function(yy){
+        //         yy.preventDefault()
+        //         let a = yy.currentTarget
+        //         let href = a.getAttribute('href')
+        //         let element = document.querySelector(href)
+        //         let top = element.offsetTop
+        //         window.scrollTo({
+        //             top: top - 80,
+        //             behavior: 'smooth',
+        //         })
+        //     }
+        // }
+
         let aTags = document.querySelectorAll('#topNavBar nav>ul>li>a')
         console.log(aTags)
         for(let i = 0; i < aTags.length; i++){
@@ -245,10 +261,21 @@
                 let href = a.getAttribute('href')
                 let element = document.querySelector(href)
                 let top = element.offsetTop
-                window.scrollTo({
-                    top: top - 80,
-                    behavior: 'smooth',
-                })
+                let targetTop = top - 80
+                let n = 25;//在一次滚动过程中总的运动次数
+                let t = 500;//总运动时间
+                let delay = t/n
+                let currentTop = window.scrollY
+                let s = targetTop - currentTop
+                let dy = s/n;//每一小步运动距离
+                let i = 1
+                let id = window.setInterval(()=>{
+                    if(i == n){
+                        window.clearInterval(id)
+                    }
+                    window.scrollTo(0,currentTop+dy*i)
+                    i = i + 1
+                },delay)
             }
         }
     </script>
