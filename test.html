@@ -111,6 +111,28 @@ for(let i = 0; i < aTags.length; i++){
             .start();
     }
 }
+
+
+ window.onscroll = function(xx){
+    let specialTags = document.querySelectorAll('[data-x]')
+    let minIndex = 0
+    for(let i = 0; i < specialTags.length; i++){
+        if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+            minIndex = i
+        }
+    }
+    
+    let id = specialTags[minIndex].id
+    let a = document.querySelector('a[href="#'+id+'"]')
+    console.log(a)
+    let li = a.parentNode
+    let liAndBrother = li.parentNode.children
+    console.log(liAndBrother)
+    for(let i = 0; i < liAndBrother.length; i++){
+        liAndBrother[i].classList.remove('active')
+    }
+    li.classList.add('active')
+}
 </script>
 </body>
 </html>

@@ -70,8 +70,8 @@
     <div class="banner">
         <div class="mask"></div>
     </div>
-    <main id="siteAbout">
-        <div class="user-card">
+    <main>
+        <div data-x id="siteAbout" class="user-card">
             <div class="picture-and-text clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -129,7 +129,7 @@
         </p>
     </main>
 
-    <section id="siteSkills" class="skill">
+    <section data-x id="siteSkills" class="skill">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -178,7 +178,7 @@
             </li>
         </ol>
     </section>
-    <section id="siteWorks" class="portfolio">
+    <section data-x id="siteWorks" class="portfolio">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -215,17 +215,51 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script>
+        //给[specialTags]添加初始 offset
+        function addOffset(){
+            let specialTags = document.querySelectorAll('[data-x]')
+            for(let i = 0; i < specialTags.length; i++){
+                specialTags[i].classList.add('offset')
+            }
+        }
+
+        addOffset()
+
         setTimeout(function () {
             siteWelcome.classList.remove('active');
-        }, 1000)
+        }, 000)
         window.onscroll = function(xx){
-            // console.log(1)
-            // console.log(window.scrollY)
+            //顶部导航栏的 附着 效果
             if(window.scrollY > 0){
                 topNavBar.classList.add('sticky')
             }else if(window.scrollY == 0){
                 topNavBar.classList.remove('sticky')
             }
+
+            //页面滚动时 对应的导航 menu 的高亮效果 + 技能进度条 动态 出场
+            let specialTags = document.querySelectorAll('[data-x]')
+            // console.log(window.scrollY)
+            let minIndex = 0
+            for(let i = 0; i < specialTags.length; i++){
+                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+                    minIndex = i
+                }
+            }
+            // console.log(minIndex)           
+            let id = specialTags[minIndex].id
+            let a = document.querySelector('a[href="#'+id+'"]')
+            // console.log(a)
+            let li = a.parentNode
+            let liAndBrother = li.parentNode.children
+            // console.log(liAndBrother)
+            for(let i = 0; i < liAndBrother.length; i++){
+                liAndBrother[i].classList.remove('highlight')
+            }
+            li.classList.add('highlight')
+            
+            //页面滚动到某一区域时，该区域内容的动态显现效果
+            specialTags[minIndex].classList.remove('offset')
+
         }
         let liMenus = document.getElementsByClassName('menuTrigger')
         for(let i = 0; i<liMenus.length; i++){
@@ -236,22 +270,6 @@
                 x.currentTarget.classList.remove('active')
             }
         }
-
-        // let aTags = document.querySelectorAll('#topNavBar nav>ul>li>a')
-        // console.log(aTags)
-        // for(let i = 0; i < aTags.length; i++){
-        //     aTags[i].onclick = function(yy){
-        //         yy.preventDefault()
-        //         let a = yy.currentTarget
-        //         let href = a.getAttribute('href')
-        //         let element = document.querySelector(href)
-        //         let top = element.offsetTop
-        //         window.scrollTo({
-        //             top: top - 80,
-        //             behavior: 'smooth',
-        //         })
-        //     }
-        // }
 
         let aTags = document.querySelectorAll('#topNavBar nav>ul>li>a')
         // console.log(aTags)
@@ -273,7 +291,7 @@
                 let s = targetTop - currentTop
                 let time =Math.abs(500*s/100)
                 time = (time > 1000)?1000:time
-                console.log(time)
+                // console.log(time)
                 var coords = { y: currentTop};
                 var tween = new TWEEN.Tween(coords) 
                     .to({ y: targetTop }, time) 
@@ -284,6 +302,10 @@
                     .start();
             }
         }
+
+        
+
+
     </script>
 </body>
 
