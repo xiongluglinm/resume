@@ -210,96 +210,11 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
-    <script>
-        //给[specialTags]添加初始 offset
-        function addOffset(){
-            let specialTags = document.querySelectorAll('[data-x]')
-            for(let i = 0; i < specialTags.length; i++){
-                specialTags[i].classList.add('offset')
-            }
-        }
-
-        addOffset()
-
-        setTimeout(function () {
-            siteWelcome.classList.remove('active');
-        }, 000)
-        window.onscroll = function(xx){
-            //顶部导航栏的 附着 效果
-            if(window.scrollY > 0){
-                topNavBar.classList.add('sticky')
-            }else if(window.scrollY == 0){
-                topNavBar.classList.remove('sticky')
-            }
-
-            //页面滚动时 对应的导航 menu 的高亮效果 + 技能进度条 动态 出场
-            let specialTags = document.querySelectorAll('[data-x]')
-            // console.log(window.scrollY)
-            let minIndex = 0
-            for(let i = 0; i < specialTags.length; i++){
-                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
-                    minIndex = i
-                }
-            }
-            // console.log(minIndex)           
-            let id = specialTags[minIndex].id
-            let a = document.querySelector('a[href="#'+id+'"]')
-            // console.log(a)
-            let li = a.parentNode
-            let liAndBrother = li.parentNode.children
-            // console.log(liAndBrother)
-            for(let i = 0; i < liAndBrother.length; i++){
-                liAndBrother[i].classList.remove('highlight')
-            }
-            li.classList.add('highlight')
-            
-            //页面滚动到某一区域时，该区域内容的动态显现效果
-            specialTags[minIndex].classList.remove('offset')
-
-        }
-        let liMenus = document.getElementsByClassName('menuTrigger')
-        for(let i = 0; i<liMenus.length; i++){
-            liMenus[i].onmouseenter = function(x){
-                x.currentTarget.classList.add('active')
-            }
-            liMenus[i].onmouseleave = function(x){
-                x.currentTarget.classList.remove('active')
-            }
-        }
-
-        let aTags = document.querySelectorAll('#topNavBar nav>ul>li>a')
-        // console.log(aTags)
-        // Setup the animation loop.
-        function animate(time) {
-            requestAnimationFrame(animate);
-            TWEEN.update(time);
-        }
-        requestAnimationFrame(animate);
-        for(let i = 0; i < aTags.length; i++){
-            aTags[i].onclick = function(yy){
-                yy.preventDefault()
-                let a = yy.currentTarget
-                let href = a.getAttribute('href')
-                let element = document.querySelector(href)
-                let top = element.offsetTop
-                let targetTop = top - 80
-                let currentTop = window.scrollY
-                let s = targetTop - currentTop
-                let time =Math.abs(500*s/100)
-                time = (time > 1000)?1000:time
-                // console.log(time)
-                var coords = { y: currentTop};
-                var tween = new TWEEN.Tween(coords) 
-                    .to({ y: targetTop }, time) 
-                    .easing(TWEEN.Easing.Exponential.InOut) 
-                    .onUpdate(function() { 
-                        window.scrollTo(0,coords.y)
-                    })
-                    .start();
-            }
-        }
-    </script>
-    <script src="./main.js"></script>
+    <script></script>
+    <script src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/smoothly-slide.js"></script>
+    <script type="text/javascript" src="./js/topNavBar-sticky.js"></script>
+    <script type="text/javascript" src="./js/topNavBar-hover.js"></script>
 
     <!-- 以下2个JS为轮播相关 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
