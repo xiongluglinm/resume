@@ -360,68 +360,8 @@ section.skill ol li:nth-child(6) .progress{
 section.portfolio {
     text-align: center;
 }
-section.portfolio nav {
-    /* border: 1px solid red; */
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 30px;
-}
-section.portfolio nav ol {
-    /* border: 1px solid green; */
-    list-style: none;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 15px;
-}
-section.portfolio nav ol li {
-    /* border: 1px solid red; */
-    float: left;
-    margin-left: 50px;
-    color: #000;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: "Open Sans";
-    cursor: pointer;
-}
-section.portfolio nav ol li:first-child {
-    margin-left: 0;
-}
-section.portfolio nav .bar {
-    /* border: 1px solid red; */
-    height: 5px;
-    margin-top: 16px;
-    border-radius: 2px;
-    background-color: #ffffff;
-}
-section.portfolio nav .bar .bar-inner {
-    background-color: #e8676b;
-    width: 35px;
-    height: 100%;
-    margin-left: 0px;
-    border-radius: 2px;
-    transition: all 0.5s;
-}
-section.portfolio nav .bar .bar-inner.state-1 {
-    width: 35px;
-    margin-left: 0px;
-}
-section.portfolio nav .bar .bar-inner.state-2 {
-    width: 40px;
-    margin-left: 73px;
-}
-section.portfolio nav .bar .bar-inner.state-3 {
-    width: 85px;
-    margin-left: 150px;
-}
-section.portfolio .jobs {
-    /* border: 1px solid red; */
-    position: relative;
-    margin-bottom: 100px;
-}
-section.portfolio .jobs .big,
-section.portfolio .jobs .small {
-    position: absolute;
+section.portfolio .swiper-container{
+    margin-bottom: 200px;
 }
 
 [data-x].offset{
