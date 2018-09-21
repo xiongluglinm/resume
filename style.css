@@ -363,6 +363,26 @@ section.portfolio {
 section.portfolio .swiper-container{
     margin-bottom: 200px;
 }
+section.portfolio .swiper-container {
+    width: 800px;
+    height: 450px;
+}
+section.portfolio .swiper-button-prev{
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    left: 0px;
+    margin-top: 0px;
+}
+section.portfolio .swiper-button-next{
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    right: 0px;
+    margin-top: 0px;
+}
 
 [data-x].offset{
     transform: translateY(100px);
