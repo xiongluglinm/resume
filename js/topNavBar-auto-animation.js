@@ -1,4 +1,5 @@
 
+//此模块不易使用MVC中的VC优化
 //给[specialTags]添加初始 offset
 !function(){
     function addOffset(){
